@@ -11,11 +11,11 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         pname = "pairux";
-        version = "0.3.10";
+        version = "0.4.0";
 
         src = pkgs.fetchurl {
           url = "https://github.com/profullstack/pairux.com/releases/download/v${version}/PairUX-${version}-x86_64.AppImage";
-          sha256 = "5a9dc4b7dc9e63c7b79bd4b18bfb3df433c895b74abd4111cd4c19ea2432577c";
+          sha256 = "620ef6e865f96c9539db80aebb59ea2eb4d0710ee6194cb9fa340a0fe04f200c";
         };
 
         appimageContents = pkgs.appimageTools.extractType2 { inherit pname version src; };
