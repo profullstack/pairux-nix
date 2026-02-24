@@ -11,11 +11,11 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         pname = "pairux";
-        version = "0.5.46";
+        version = "0.6.0";
 
         src = pkgs.fetchurl {
           url = "https://github.com/profullstack/pairux.com/releases/download/v${version}/PairUX-${version}-x86_64.AppImage";
-          sha256 = "630e3938dda0bfcd786bfa7e438f1fa18de2c06cff65f69f333731cf1e64342f";
+          sha256 = "63c2325da77b75c5735e49b3bcdb22239ec340af21f92b125ff177249af1a6e7";
         };
 
         appimageContents = pkgs.appimageTools.extractType2 { inherit pname version src; };
@@ -24,6 +24,11 @@
         packages = {
           default = pkgs.appimageTools.wrapType2 {
             inherit pname version src;
+            extraPkgs = pkgs: with pkgs; [
+              xdg-utils
+              xdg-desktop-portal
+              ydotool
+            ];
 
             extraInstallCommands = ''
               install -m 444 -D ${appimageContents}/pairux.desktop $out/share/applications/pairux.desktop
