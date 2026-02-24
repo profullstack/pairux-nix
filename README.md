@@ -38,6 +38,8 @@ Add to your `flake.nix`:
           environment.systemPackages = [
             pairux.packages.${pkgs.system}.default
           ];
+          # For Wayland remote control, ensure a compositor portal backend service
+          # is enabled on your system (KDE/GNOME/wlroots-specific).
         })
       ];
     };
@@ -47,7 +49,7 @@ Add to your `flake.nix`:
 
 ## Version
 
-Current version: 0.5.46
+Current version: 0.6.0
 
 ## License
 
