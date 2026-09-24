@@ -49,7 +49,7 @@ Add to your `flake.nix`:
 
 ## Version
 
-Current version: 0.12.1
+Current version: 0.13.0
 
 ## License
 
